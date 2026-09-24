@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru" style="font-size: 112.5%;"><head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>План поездки Мирона</title>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#f4f1ea; --ink:#141414; --muted:#3a3a3a; --line:#8f897b;
+    --accent:#12356b; --accent-ink:#ffffff; --good:#0d5c2e; --bad:#8a1f1f; --band:#cfe0f5;
+    --sys:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --bg:#141414; --panel:#232323; --ink:#f5f5f5; --muted:#d6d6d6; --line:#8a8a8a;
+      --accent:#8fb8f5; --accent-ink:#101010; --good:#7fd6a0; --bad:#ff9a9a; --band:#2a4266;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#141414; --panel:#232323; --ink:#f5f5f5; --muted:#d6d6d6; --line:#8a8a8a;
+    --accent:#8fb8f5; --accent-ink:#101010; --good:#7fd6a0; --bad:#ff9a9a; --band:#2a4266;
+  }
+  *{box-sizing:border-box}
+  html{font-size:112.5%} /* 18px база; кнопки «Крупнее» меняют её */
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sys);font-size:1.2rem;line-height:1.6;
+    padding-inline:20px;padding-block:20px 64px;
+  }
+  .page{max-width:44rem;margin:0 auto}
+  .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0 18px;border-bottom:2px solid var(--line)}
+  .toolbar span{font-weight:600}
+  .tbtn{
+    font:inherit;font-weight:700;color:var(--accent-ink);background:var(--accent);border:0;border-radius:10px;
+    min-height:52px;min-width:52px;padding:8px 18px;cursor:pointer;
+  }
+  .tbtn:focus-visible,select:focus-visible,input:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+  h1{font-size:2.1rem;line-height:1.2;margin:26px 0 8px;text-wrap:balance}
+  .lede{font-size:1.25rem;margin:0 0 8px;color:var(--muted)}
+  h2{font-size:1.65rem;line-height:1.25;margin:2.4rem 0 .6rem;padding-top:1.2rem;border-top:2px solid var(--line);text-wrap:balance}
+  p{margin:.7rem 0}
+  ul{padding-left:1.4rem;margin:.6rem 0}
+  li{margin:.6rem 0}
+  b,strong{font-weight:700}
+  .box{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+  .box ul{margin:.2rem 0;padding-left:1.3rem}
+  .small{font-size:1.05rem;color:var(--muted)}
+
+  /* калькулятор */
+  .ctl{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:12px 0}
+  label.f{display:flex;flex-direction:column;gap:6px;font-weight:600}
+  select{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:10px;min-height:56px;padding:8px 12px}
+  .total{font-size:2.6rem;font-weight:800;line-height:1.1;color:var(--accent);margin-top:10px}
+  .rng{font-size:1.2rem;font-weight:600}
+  .bar{position:relative;height:30px;border:2px solid var(--ink);border-radius:8px;background:var(--panel);margin:18px 0 6px}
+  .band{position:absolute;top:0;bottom:0;background:var(--band);border-inline:3px solid var(--accent)}
+  .lon{position:absolute;top:-9px;bottom:-9px;border-left:4px dashed var(--bad)}
+  .barlab{display:flex;justify-content:space-between;gap:10px;font-size:1rem;font-weight:600}
+  #diff{font-weight:700;font-size:1.2rem}
+  .grp{font-size:1.3rem;font-weight:800;margin:1.6rem 0 .3rem}
+  .ln{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:12px 0;border-top:1px solid var(--line);align-items:start}
+  .ln .ck{width:30px;height:30px;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}
+  .ln .ck.ph{visibility:hidden}
+  .ln .nm{font-weight:600}
+  .ln .nm small{display:block;font-weight:400;font-size:1rem;color:var(--muted);line-height:1.4}
+  .ln .pr{grid-column:2;font-weight:800;font-size:1.25rem;font-variant-numeric:tabular-nums}
+  .ln.off .nm,.ln.off .pr{opacity:.45}
+  .sub{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 0 0;border-top:3px solid var(--ink);font-weight:800;font-size:1.25rem}
+  @media (min-width:640px){
+    .ln{grid-template-columns:auto 1fr auto}
+    .ln .pr{grid-column:3;text-align:right;white-space:nowrap}
+  }
+  .sig{font-size:1.5rem;font-weight:700;margin-top:2rem}
+  @media print{
+    @page{size:A4;margin:14mm}
+    html{font-size:16px!important}
+    .toolbar{display:none}
+    body{padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    h2{break-after:avoid}
+    .ln,.box{break-inside:avoid}
+    .ck.ph{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="toolbar" role="group" aria-label="Размер текста">
+    <span>Размер текста:</span>
+    <button class="tbtn" id="smaller" type="button" aria-label="Сделать текст мельче">А−</button>
+    <button class="tbtn" id="bigger" type="button" aria-label="Сделать текст крупнее">А+</button>
+  </div>
+
+  <h1>План поездки Мирона вместо Лондона</h1>
+  <p class="lede">Письмо от Алины. Ничего не нужно решать сразу: это план и расчёт, чтобы тебе было из чего выбирать.</p>
+
+  <h2>Коротко</h2>
+  <div class="box">
+    <ul>
+      <li><b>Что:</b> вместо недели в Лондоне (250 000 ₽) Мирон летит в Таиланд ко мне и к Насте.</li>
+      <li><b>Когда:</b> январь 2027, на 10 или 14 дней. Точные даты выберем по цене билета.</li>
+      <li><b>Где:</b> 2 ночи в Бангкоке (парки, музеи), остальное на острове Ко Лан у Паттайи (море).</li>
+      <li><b>С кем:</b> я, с полной ответственностью, и Настя (свободный английский).</li>
+      <li><b>Как летит:</b> прямой рейс Москва–Бангкок, с сопровождением сотрудника авиакомпании. В аэропорту его встречаю я.</li>
+      <li><b>Английский:</b> занятия по расписанию и «Гарри Поттер» на английском.</li>
+    </ul>
+  </div>
+
+  <h2>Почему я не выбрала Лондон</h2>
+  <p class="small">Это опыт Насти, которая жила в английских семьях. Это общая картина, а не про конкретную семью.</p>
+  <ul>
+    <li><b>Зимой холодно и сыро.</b> Около +1…+5 °C, но из-за влажности ощущается как −15. В домах тоже прохладно, отопление дорогое.</li>
+    <li><b>Тур типовой.</b> Стандартный маршрут: у 10-летнего вряд ли будет восторг, а первая поездка должна понравиться.</li>
+    <li><b>За неделю английский почти не растёт.</b> Барьер «ломается» ненадолго. Для результата нужны месяцы.</li>
+    <li><b>Проживание в семье случайное.</b> Питание и условия не гарантированы: чаще полуфабрикаты, несколько детей в комнате, экономия воды и тепла. Хозяева не всегда носители языка.</li>
+    <li><b>Для 10 лет рановато.</b> Такие поездки лучше «заходят» в 14–15 лет.</li>
+  </ul>
+
+  <h2>Что предлагаю</h2>
+  <ul>
+    <li><b>Дорога.</b> Прямой рейс, услуга сопровождения ребёнка. Загранпаспорт у Мирона есть.</li>
+    <li><b>Бангкок.</b> Аттракционы, океанариум со стеклянным туннелем, интерактивный детский музей, парк, где по дорожкам ходят огромные вараны.</li>
+    <li><b>Остров Ко Лан.</b> Море, сноркелинг, каяк. Для Мирона оплачена комната на острове.</li>
+    <li><b>Английский.</b> Занятия раз в два дня с Настей, чтение «Гарри Поттера» вслух на английском, кино с английскими субтитрами, «английский час» каждый день.</li>
+    <li><b>Режим.</b> Меньше экрана, больше воды и движения. Мирон всегда с взрослым.</li>
+  </ul>
+
+  <h2>Сколько это стоит</h2>
+  <p>Выбери длительность и даты, и суммы пересчитаются. Ниже расписаны все статьи с разбросом «от — до».</p>
+  <div aria-live="polite">
+    <div class="ctl">
+      <label class="f" for="days">Длительность
+        <select id="days"><option value="10">10 дней</option><option value="14">14 дней</option></select></label>
+      <label class="f" for="dates">Даты вылета
+        <select id="dates"><option value="106790">Середина января (15–25 янв)</option><option value="80648">Конец января (20–30 янв)</option></select></label>
+    </div>
+    <div class="total" id="total">около 226 тыс. ₽</div>
+    <div class="rng" id="rng">разброс 185 тыс. ₽ – 267 тыс. ₽</div>
+    <div class="bar" role="img" aria-label="Сравнение стоимости со школьной поездкой в Лондон"><div class="band" id="band" style="left: 64.1195%; width: 28.4731%;"></div><div class="lon" id="lon" style="left: 86.6784%;"></div></div>
+    <div class="barlab"><span>0</span><span>Лондон 250 тыс. ₽ (пунктир)</span><span id="maxLab">288 тыс. ₽</span></div>
+    <p id="diff">По сравнению со школьной поездкой (250 тыс. ₽), в среднем: экономия 24 тыс. ₽. В худшем случае: переплата 17 тыс. ₽, в лучшем: экономия 65 тыс. ₽.</p>
+    <div id="tbl"><div class="grp">Обязательные расходы</div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Билет Москва–Бангкок–Москва<small>прямой рейс Аэрофлота, с багажом 23 кг, запас на рост цены 15%</small></div><div class="pr">125 тыс. ₽ – 144 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Сопровождение ребёнка на рейсе<small>услуга авиакомпании</small></div><div class="pr">5 тыс. ₽ – 11 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Виза<small>не нужна: безвиз для россиян на 30 дней (с 15.09.2026). Электронную карту прибытия заполняют онлайн, проверим перед вылетом</small></div><div class="pr">0 ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Страховка на поездку</div><div class="pr">3 тыс. ₽ – 5 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Нотариальное согласие на выезд</div><div class="pr">3 тыс. ₽ – 5 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Дорога от аэропорта до острова и обратно<small>автобус, минивэн или такси, паром</small></div><div class="pr">3 тыс. ₽ – 8 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Бангкок, 2 ночи<small>комната для Мирона</small></div><div class="pr">3 тыс. ₽ – 6 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Остров Ко Лан, 7 ночей<small>комната для Мирона, 2,7–5,7 тыс. ₽ за ночь</small></div><div class="pr">19 тыс. ₽ – 40 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Еда, 10 дней<small>около 1,2–2,1 тыс. ₽ в день</small></div><div class="pr">12 тыс. ₽ – 21 тыс. ₽</div></div><div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">Транспорт на месте<small>метро, такси</small></div><div class="pr">2 тыс. ₽ – 4 тыс. ₽</div></div><div class="sub"><span>Итого обязательное</span><span>174 тыс. ₽ – 244 тыс. ₽</span></div><div class="grp">По желанию <span class="small" style="font-weight:400">(галочку можно снять)</span></div><div class="ln"><input class="ck" type="checkbox" id="o_dream" data-o="dream" checked=""><label class="nm" for="o_dream">Парк аттракционов Dream World<small>горки, привидения, снежный парк</small></label><div class="pr">2 тыс. ₽ – 3 тыс. ₽</div></div><div class="ln"><input class="ck" type="checkbox" id="o_sea" data-o="sea" checked=""><label class="nm" for="o_sea">Океанариум Sea Life Bangkok<small>стеклянный туннель, лодка со стеклянным дном</small></label><div class="pr">3 тыс. ₽ – 4 тыс. ₽</div></div><div class="ln"><input class="ck" type="checkbox" id="o_cdm" data-o="cdm" checked=""><label class="nm" for="o_cdm">Детский интерактивный музей<small>Lego, раскопки, вода</small></label><div class="pr">0 тыс. ₽ – 1 тыс. ₽</div></div><div class="ln"><input class="ck" type="checkbox" id="o_snork" data-o="snork" checked=""><label class="nm" for="o_snork">Лодка со сноркелингом<small>маска, трубка</small></label><div class="pr">2 тыс. ₽ – 3 тыс. ₽</div></div><div class="ln"><input class="ck" type="checkbox" id="o_kayak" data-o="kayak" checked=""><label class="nm" for="o_kayak">Каяк<small>аренда на пару часов</small></label><div class="pr">1 тыс. ₽ – 2 тыс. ₽</div></div><div class="ln"><input class="ck" type="checkbox" id="o_pocket" data-o="pocket" checked=""><label class="nm" for="o_pocket">Карманные деньги и сувениры</label><div class="pr">3 тыс. ₽ – 8 тыс. ₽</div></div><div class="ln"><input class="ck" type="checkbox" id="o_eng" data-o="eng" checked=""><label class="nm" for="o_eng">Материалы для английского<small>блокнот, книга, бумага</small></label><div class="pr">1 тыс. ₽ – 3 тыс. ₽</div></div><div class="ln off"><input class="ck" type="checkbox" id="o_siam" data-o="siam"><label class="nm" for="o_siam">Siam Park City<small>самые крутые горки, аквапарк</small></label><div class="pr">1 тыс. ₽ – 3 тыс. ₽</div></div><div class="ln off"><input class="ck" type="checkbox" id="o_safari" data-o="safari"><label class="nm" for="o_safari">Safari World<small>сафари и морской парк, весь день</small></label><div class="pr">4 тыс. ₽ – 5 тыс. ₽</div></div><div class="ln off"><input class="ck" type="checkbox" id="o_water" data-o="water"><label class="nm" for="o_water">Водные развлечения на острове<small>банан, парашют и подобное</small></label><div class="pr">2 тыс. ₽ – 4 тыс. ₽</div></div><div class="sub"><span>Итого по желанию</span><span>11 тыс. ₽ – 23 тыс. ₽</span></div></div>
+  </div>
+  <p class="small">Цены ориентировочные: билеты по поиску от 24.09.2026, остальное моя оценка по ценам в интернете. Итоговая сумма станет точной, когда выберем даты и купим билеты. Мои и Настины расходы не входят. Комната Мирона на острове оплачена целиком; если он живёт со мной, выйдет дешевле. Строки в разделе «по желанию» можно отключить галочкой.</p>
+
+  <h2>Безопасность</h2>
+  <ul>
+    <li>Сопровождение ребёнка на рейсе и встреча в аэропорту.</li>
+    <li>Мирон всё время рядом с одним из двух взрослых.</li>
+    <li>Медицинская страховка на поездку.</li>
+    <li>Предлагаю ежедневную связь с тобой: сообщение или видеозвонок.</li>
+    <li>Если что-то пойдёт не так, поездку можно сократить и вернуть его домой.</li>
+  </ul>
+
+  <h2>Что нужно от тебя</h2>
+  <ul>
+    <li>Решить: Таиланд или школьная поездка, и на сколько дней.</li>
+    <li>Нотариальное согласие на выезд ребёнка без родителей (я уточню точные требования).</li>
+    <li>Проверить срок действия загранпаспорта Мирона.</li>
+    <li>Рассказать про здоровье: аллергии, лекарства, что важно знать взрослому.</li>
+  </ul>
+
+  <p style="margin-top:2rem">Если хочешь, расскажу подробнее голосовым или пришлю таблицу расходов. Мне важно, чтобы Мирон поехал в безопасное, тёплое и интересное место и вернулся с хорошими впечатлениями.</p>
+  <p class="sig">Алина</p>
+</div>
+
+<script>
+(function(){
+  var LONDON=250000, BAG=18695, BUF=.15, RATE=3;
+  var opt={dream:1,sea:1,cdm:1,snork:1,kayak:1,pocket:1,eng:1,siam:0,safari:0,water:0};
+  var OPTS=[
+    ['dream','Парк аттракционов Dream World','горки, привидения, снежный парк',650*RATE,950*RATE],
+    ['sea','Океанариум Sea Life Bangkok','стеклянный туннель, лодка со стеклянным дном',900*RATE,1300*RATE],
+    ['cdm','Детский интерактивный музей','Lego, раскопки, вода',100*RATE,200*RATE],
+    ['snork','Лодка со сноркелингом','маска, трубка',1500,3000],
+    ['kayak','Каяк','аренда на пару часов',600,1500],
+    ['pocket','Карманные деньги и сувениры','',3000,8000],
+    ['eng','Материалы для английского','блокнот, книга, бумага',1000,3000],
+    ['siam','Siam Park City','самые крутые горки, аквапарк',1400,2500],
+    ['safari','Safari World','сафари и морской парк, весь день',3600,5400],
+    ['water','Водные развлечения на острове','банан, парашют и подобное',1500,4000]
+  ];
+  function k(n){return Math.round(n/1000).toLocaleString('ru-RU')+' тыс. ₽'}
+  function r(lo,hi){return lo===hi?(lo===0?'0 ₽':k(lo)):k(lo)+' – '+k(hi)}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  var $=function(id){return document.getElementById(id)};
+
+  function calc(){
+    var d=+$('days').value, p=+$('dates').value;
+    var isl=d-3, bkk=2, fl=p+BAG;
+    var fixed=[
+      ['Билет Москва–Бангкок–Москва','прямой рейс Аэрофлота, с багажом 23 кг, запас на рост цены 15%',fl,fl*(1+BUF)],
+      ['Сопровождение ребёнка на рейсе','услуга авиакомпании',5000,11000],
+      ['Виза','не нужна: безвиз для россиян на 30 дней (с 15.09.2026). Электронную карту прибытия заполняют онлайн, проверим перед вылетом',0,0],
+      ['Страховка на поездку','',2500,5000],
+      ['Нотариальное согласие на выезд','',2500,5000],
+      ['Дорога от аэропорта до острова и обратно','автобус, минивэн или такси, паром',3000,8000],
+      ['Бангкок, '+bkk+' ночи','комната для Мирона',3000,6000],
+      ['Остров Ко Лан, '+isl+' ночей','комната для Мирона, 2,7–5,7 тыс. ₽ за ночь',isl*2700,isl*5700],
+      ['Еда, '+d+' дней','около 1,2–2,1 тыс. ₽ в день',d*1200,d*2100],
+      ['Транспорт на месте','метро, такси',1500,4000]
+    ];
+    var fLo=0,fHi=0,oLo=0,oHi=0,h='<div class="grp">Обязательные расходы</div>';
+    fixed.forEach(function(x){
+      fLo+=x[2];fHi+=x[3];
+      h+='<div class="ln"><input class="ck ph" type="checkbox" tabindex="-1" aria-hidden="true"><div class="nm">'+esc(x[0])+(x[1]?'<small>'+esc(x[1])+'</small>':'')+'</div><div class="pr">'+r(x[2],x[3])+'</div></div>';
+    });
+    h+='<div class="sub"><span>Итого обязательное</span><span>'+r(fLo,fHi)+'</span></div>';
+    h+='<div class="grp">По желанию <span class="small" style="font-weight:400">(галочку можно снять)</span></div>';
+    OPTS.forEach(function(x){
+      var on=opt[x[0]];
+      if(on){oLo+=x[3];oHi+=x[4]}
+      h+='<div class="ln'+(on?'':' off')+'"><input class="ck" type="checkbox" id="o_'+x[0]+'" data-o="'+x[0]+'"'+(on?' checked':'')+'><label class="nm" for="o_'+x[0]+'">'+esc(x[1])+(x[2]?'<small>'+esc(x[2])+'</small>':'')+'</label><div class="pr">'+r(x[3],x[4])+'</div></div>';
+    });
+    h+='<div class="sub"><span>Итого по желанию</span><span>'+r(oLo,oHi)+'</span></div>';
+    $('tbl').innerHTML=h;
+    var lo=fLo+oLo, hi=fHi+oHi, mid=(lo+hi)/2;
+    $('total').textContent='около '+k(mid);
+    $('rng').textContent='разброс '+k(lo)+' – '+k(hi);
+    var max=Math.max(LONDON,hi)*1.08;
+    $('band').style.left=(lo/max*100)+'%';
+    $('band').style.width=((hi-lo)/max*100)+'%';
+    $('lon').style.left=(LONDON/max*100)+'%';
+    $('maxLab').textContent=k(max);
+    function sign(n){return n>=0?'экономия '+k(n):'переплата '+k(-n)}
+    $('diff').textContent='По сравнению со школьной поездкой (250 тыс. ₽), в среднем: '+sign(LONDON-mid)+'. В худшем случае: '+sign(LONDON-hi)+', в лучшем: '+sign(LONDON-lo)+'.';
+    document.querySelectorAll('#tbl input[data-o]').forEach(function(c){
+      c.addEventListener('change',function(){opt[c.dataset.o]=c.checked?1:0;calc();var n=$('o_'+c.dataset.o);if(n)n.focus()});
+    });
+  }
+  ['days','dates'].forEach(function(id){$(id).addEventListener('change',calc)});
+  calc();
+
+  // размер текста
+  var steps=[112.5,125,140,160], idx=0;
+  try{var s=parseInt(localStorage.getItem('miron-mom-fs'),10); if(s>=0&&s<steps.length) idx=s;}catch(e){}
+  function apply(){document.documentElement.style.fontSize=steps[idx]+'%';try{localStorage.setItem('miron-mom-fs',String(idx))}catch(e){}}
+  $('bigger').addEventListener('click',function(){if(idx<steps.length-1){idx++;apply()}});
+  $('smaller').addEventListener('click',function(){if(idx>0){idx--;apply()}});
+  apply();
+})();
+</script>
+
+
+</body></html>
